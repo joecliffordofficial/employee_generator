@@ -24,7 +24,7 @@ describe('Manager', () => {
     it('should return the Manager role', () => {
         expect(employee.getRole()).toBe('Employee')
     })
-    
+
     it('shoule return the Manager office', () => {
         expect(employee.getOffice().toBe('1313'))
     })

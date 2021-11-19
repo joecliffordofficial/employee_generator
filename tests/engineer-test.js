@@ -7,7 +7,7 @@ describe('Engineer', () => {
     const github = 'joecliffordofficial'
 
 
-    const employee = new Engineer (name, id, email, github)
+    const employee = new Engineer(name, id, email, github)
 
     it('should return the engineer name', () => {
         expect(employee.getName()).toBe('Joseph')
