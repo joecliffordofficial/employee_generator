@@ -203,3 +203,50 @@ const employeeType = () => {
         }
     })
 }
+
+const engineerQs = () => {
+    inquirer.prompt(engineerQuestions).then((answers) => {
+        var engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
+        team.push(engineer)
+        addAnother()
+    })
+}
+
+const internQs = () => {
+    inquirer.prompt(internQuestions).then((answers) => {
+        var intern = new Intern(answers.name, answers.id, answers.email, answers.school)
+        team.push(intern)
+        addAnother()
+    })
+}
+
+const managerQs = () => {
+    inquirer.prompt(managerQuestions).then((answers) => {
+        var manager = new Manager(answers.name, answers.id, answers.email, answers.office)
+        team.push(manager)
+        addAnother()
+    })
+}
+
+const createCards = (team) => {
+    let cards = []
+    team.forEach((member) => {
+        console.log(member.getRole())
+        switch (member.getRole()) {
+            case 'Manager':
+                memberRole = `Office ${member.office}`
+                break
+            case 'Engineer': 
+                memberRole = `GitHub: ${member.github}`
+                break
+            case 'Intern' :
+                memberRole = `School: ${member.school}`
+                break
+        }
+        let memberCard = `<div class = 'card col-lg-3 m-2 shadow'><h1 class = 'card-header bg-info'>${member.name}</h1><h3>${member.getRole()}</h3><h3>${member.id}</h3><h3>${member.email}</h3><h3>${memberRole}</h3></div>`
+    })
+    cardString = cards.join("")
+    console.log(cardString)
+    return cardString
+}
+
