@@ -5,6 +5,7 @@ const Engineer = require('./type/engineer')
 const Intern = require('./type/intern')
 const Employee = require('./type/employee')
 const { response } = require('express')
+const { init } = require('cjs-module-lexer')
 
 
 let team = []
@@ -250,3 +251,11 @@ const createCards = (team) => {
     return cardString
 }
 
+
+
+
+function init() {
+    managerQs()
+}
+
+init()
