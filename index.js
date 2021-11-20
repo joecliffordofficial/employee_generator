@@ -48,4 +48,158 @@ const managerQuestions = [
             }
         }
     }, 
+    {
+        type: 'input', 
+        message: 'What is the office number for the manager?',
+        name: 'officeNum',
+        validate: (response) => {
+            if (!response) {
+                console.log('This field is required.')
+            } else {
+                return true
+            }
+        }
+    }
 ]
+
+const engineerQuestions = [
+    {
+        type: 'input',
+        message: 'What is the name for the engineer?',
+        name: 'name',
+        validate: (response) => {
+            if (!response) {
+                console.log('This field is required.')
+            } else {
+                return true
+            }
+        }
+    },
+    {
+        type: 'input',
+        message: 'What is the ID of the engineer?',
+        name: 'id',
+        validate: (response) => {
+            if (!response) {
+                console.log('This field is required.')
+            } else {
+                return true
+            }
+        }
+    }, 
+    {
+        type: 'input',
+        message: 'What is the email for the engineer?',
+        name: 'email',
+        validate: (response) => {
+            if (!response) {
+                console.log('This field is required.')
+            } else {
+                return true
+            }
+        }
+    }, 
+    {
+        type: 'input',
+        message: 'What is the GitHub for the engineer?',
+        name: 'github',
+        validate: (response) => {
+            if (!response) {
+                console.log('This field is required.')
+            } else {
+                return true
+            }
+        }
+    }
+]
+
+const internQuestions = [
+    {
+        type: 'input',
+        message: 'What is the name of the intern?',
+        name: 'name',
+        validate: (response) => {
+            if (!response) {
+                console.log('This field is required.')
+            } else {
+                return true
+            }
+        }
+    }, 
+    {
+        type: 'input',
+        message: 'What is the ID for the intern?',
+        name: 'id',
+        validate: (response) => {
+            if (!response) {
+                console.log('This field is required.')
+            } else {
+                return true
+            }
+        }
+    }, 
+    {
+        type: 'input',
+        message: 'What is the email for the intern?',
+        name: 'email',
+        validate: (response) => {
+            if (!response) {
+                console.log('This field is required.')
+            } else {
+                return true
+            }
+        }
+    }, 
+    {
+        type: 'input',
+        message: 'Where does the intern go to school?',
+        name: 'school',
+        validate: (response) => {
+            if (!response) {
+                console.log('This field is required.')
+            } else {
+                return true
+            }
+        }
+    }
+]
+
+const addAnother = () => {
+    inquirer.prompt([
+        {
+            type: 'confirm',
+            message: 'Would you like to add another employee?',
+            name: 'addAnother'
+        }
+    ]).then((response) => {
+        console.log(response)
+        if (response.addAnother == true) {
+            employeeType()
+        } else {
+            console.log(team)
+            createCards(team)
+            writeToFile('yourHTML.html', generateHtml(cardString))
+        }
+    })
+}
+
+const employeeType = () => {
+    inquirer.prompt([
+        {
+            type: 'list',
+            message: 'What kind of employee is this?',
+            choices: ['Engineer', 'Intern', 'Cancel'],
+            name: 'type'
+        }
+    ]).then((response) => {
+        if (response.type === 'Engineer') {
+            engineerQuestions()
+        } else if (response.type === 'Intern') {
+            internQuestions()
+        } else {
+            console.log(team)
+            createCards(team)
+            writeToFile('yourHTML.html', generateHtml(cardString))
+        }
+    })
+}
