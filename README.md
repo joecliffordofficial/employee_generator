@@ -30,13 +30,13 @@ Check it out below!
 
 ### Links
 
-[Repository]()
+[Repository](https://github.com/joecliffordofficial/employee_generator)
 
-[Video]()
+[Video](https://joecliffordofficial.github.io/employee_generator/)
 
 <a name = "images"></a>
 
 ## Images
 
-<img src = ./video/>
-<img src = ./video/>
+<img src = ./video/testPic.png>
+<img src = ./video/generatedHtml.png>
