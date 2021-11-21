@@ -4,8 +4,6 @@ const Manager = require('./type/manager')
 const Engineer = require('./type/engineer')
 const Intern = require('./type/intern')
 const Employee = require('./type/employee')
-const { response } = require('express')
-const { init } = require('cjs-module-lexer')
 
 
 let team = []
@@ -24,7 +22,7 @@ const managerQuestions = [
                 return true
             }
         }
-    }, 
+    },
     {
         type: 'input',
         message: 'What is the employee ID for the office manager?',
@@ -36,7 +34,7 @@ const managerQuestions = [
                 return true
             }
         }
-    }, 
+    },
     {
         type: 'input',
         message: 'What is the email address for the office manager?',
@@ -48,9 +46,9 @@ const managerQuestions = [
                 return true
             }
         }
-    }, 
+    },
     {
-        type: 'input', 
+        type: 'input',
         message: 'What is the office number for the manager?',
         name: 'officeNum',
         validate: (response) => {
@@ -87,7 +85,7 @@ const engineerQuestions = [
                 return true
             }
         }
-    }, 
+    },
     {
         type: 'input',
         message: 'What is the email for the engineer?',
@@ -99,7 +97,7 @@ const engineerQuestions = [
                 return true
             }
         }
-    }, 
+    },
     {
         type: 'input',
         message: 'What is the GitHub for the engineer?',
@@ -126,7 +124,7 @@ const internQuestions = [
                 return true
             }
         }
-    }, 
+    },
     {
         type: 'input',
         message: 'What is the ID for the intern?',
@@ -138,7 +136,7 @@ const internQuestions = [
                 return true
             }
         }
-    }, 
+    },
     {
         type: 'input',
         message: 'What is the email for the intern?',
@@ -150,7 +148,7 @@ const internQuestions = [
                 return true
             }
         }
-    }, 
+    },
     {
         type: 'input',
         message: 'Where does the intern go to school?',
@@ -174,12 +172,12 @@ const addAnother = () => {
         }
     ]).then((response) => {
         console.log(response)
-        if (response.addAnother == true) {
+        if (response.addAnother === true) {
             employeeType()
         } else {
             console.log(team)
             createCards(team)
-            writeToFile('yourHTML.html', generateHtml(cardString))
+            writeToFile('teamHTML.html', generateHtml(cardString))
         }
     })
 }
@@ -194,13 +192,13 @@ const employeeType = () => {
         }
     ]).then((response) => {
         if (response.type === 'Engineer') {
-            engineerQuestions()
+            engineerQs()
         } else if (response.type === 'Intern') {
-            internQuestions()
+            internQs()
         } else {
             console.log(team)
             createCards(team)
-            writeToFile('yourHTML.html', generateHtml(cardString))
+            writeToFile('teamHTML.html', generateHtml(cardString))
         }
     })
 }
@@ -237,14 +235,15 @@ const createCards = (team) => {
             case 'Manager':
                 memberRole = `Office ${member.office}`
                 break
-            case 'Engineer': 
+            case 'Engineer':
                 memberRole = `GitHub: ${member.github}`
                 break
-            case 'Intern' :
+            case 'Intern':
                 memberRole = `School: ${member.school}`
                 break
         }
         let memberCard = `<div class = 'card col-lg-3 m-2 shadow'><h1 class = 'card-header bg-info'>${member.name}</h1><h3>${member.getRole()}</h3><h3>${member.id}</h3><h3>${member.email}</h3><h3>${memberRole}</h3></div>`
+        cards.push(memberCard)
     })
     cardString = cards.join("")
     console.log(cardString)
