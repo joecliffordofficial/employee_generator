@@ -50,7 +50,7 @@ const managerQuestions = [
     {
         type: 'input',
         message: 'What is the office number for the manager?',
-        name: 'officeNum',
+        name: 'office',
         validate: (response) => {
             if (!response) {
                 console.log('This field is required.')
