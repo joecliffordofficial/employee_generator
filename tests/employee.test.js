@@ -9,15 +9,15 @@ describe('Employee', () => {
     const employee = new Employee(name, id, email)
 
     it('should return the employee name', () => {
-        expect(employee.getName()).toBe('Joseph')
+        expect(employee.getName()).toBe('Joseph');
     })
 
     it('should return the employee id', () => {
-        expect(employee.getID()).toBe('001')
+        expect(employee.getID()).toBe('001');
     })
 
     it('should return the employee email', () => {
-        expect(employee.getEmail()).toBe('joecliffordofficial@gmail.com')
+        expect(employee.getEmail()).toBe('joecliffordofficial@gmail.com');
     })
 
     it('should return the employee role', () => {

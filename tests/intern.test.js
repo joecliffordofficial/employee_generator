@@ -10,23 +10,23 @@ describe('Intern', () => {
     const employee = new Intern(name, id, email, school)
 
     it('should return the intern name', () => {
-        expect(employee.getName()).toBe('Joseph')
+        expect(employee.getName()).toBe('Joseph');
     })
 
     it('should return the intern id', () => {
-        expect(employee.getID()).toBe('001')
+        expect(employee.getID()).toBe('001');
     })
 
     it('should return the intern email', () => {
-        expect(employee.getEmail()).toBe('joecliffordofficial@gmail.com')
+        expect(employee.getEmail()).toBe('joecliffordofficial@gmail.com');
     })
 
     it('should return the intern role', () => {
-        expect(employee.getRole()).toBe('Intern')
+        expect(employee.getRole()).toBe('Intern');
     })
 
     it('should return the intern school', () => {
-        expect(employee.getSchool().toBe('UW'))
+        expect(employee.getSchool()).toBe('UW')
     })
 
 

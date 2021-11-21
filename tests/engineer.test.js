@@ -10,24 +10,26 @@ describe('Engineer', () => {
     const employee = new Engineer(name, id, email, github)
 
     it('should return the engineer name', () => {
-        expect(employee.getName()).toBe('Joseph')
+        expect(employee.getName()).toBe('Joseph');
     })
 
     it('should return the engineer id', () => {
-        expect(employee.getID()).toBe('001')
+        expect(employee.getID()).toBe('001');
     })
 
     it('should return the engineer email', () => {
-        expect(employee.getEmail()).toBe('joecliffordofficial@gmail.com')
-    })
-
-    it('should return the enginer role', () => {
-        expect(employee.getRole()).toBe('Engineer')
+        expect(employee.getEmail()).toBe('joecliffordofficial@gmail.com');
     })
 
     it('should return the engineer github', () => {
-        expect(employee.getGitHub().toBe('joecliffordofficial'))
+        expect(employee.getGitHub()).toBe('joecliffordofficial')
     })
+
+    it('should return the enginer role', () => {
+        expect(employee.getRole()).toBe('Engineer');
+    })
+
+   
 
 
 

@@ -11,12 +11,12 @@ class Employee {
     }
 
     getID() {
-        console.log(`Name: ${this.id}`)
+        console.log(`ID: ${this.id}`)
         return this.id
     }
 
     getEmail() {
-        console.log(`Name: ${this.email}`)
+        console.log(`Email: ${this.email}`)
         return this.email
     }
 
